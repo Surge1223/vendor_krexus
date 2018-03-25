@@ -22,7 +22,7 @@ PRODUCT_PROPERTY_OVERRIDES += \
 PRODUCT_COPY_FILES += \
     vendor/krexus/prebuilt/common/bin/backuptool.sh:install/bin/backuptool.sh \
     vendor/krexus/prebuilt/common/bin/backuptool.functions:install/bin/backuptool.functions \
-    vendor/krexus/prebuilt/common/bin/50-gzosp.sh:system/addon.d/50-gzosp.sh \
+    vendor/krexus/prebuilt/common/bin/50-krexus.sh:system/addon.d/50-krexus.sh \
     vendor/krexus/prebuilt/common/bin/clean_cache.sh:system/bin/clean_cache.sh
 
 # Backup services whitelist
@@ -33,9 +33,9 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES += \
     vendor/krexus/prebuilt/common/bin/otasigcheck.sh:install/bin/otasigcheck.sh
 
-# Gzosp-specific init file
+# krexus-specific init file
 PRODUCT_COPY_FILES += \
-    vendor/krexus/prebuilt/common/etc/init.local.rc:root/init.gzosp.rc
+    vendor/krexus/prebuilt/common/etc/init.local.rc:root/init.krexus.rc
 
 # SELinux filesystem labels
 PRODUCT_COPY_FILES += \
@@ -54,7 +54,7 @@ PRODUCT_COPY_FILES += \
 PRODUCT_COPY_FILES +=  \
     vendor/krexus/prebuilt/common/sysconfig/dialer_experience.xml:system/etc/sysconfig/dialer_experience.xml
 
-# Gzosp-specific startup services
+# krexus-specific startup services
 PRODUCT_COPY_FILES += \
     vendor/krexus/prebuilt/common/etc/init.d/00banner:system/etc/init.d/00banner \
     vendor/krexus/prebuilt/common/etc/init.d/90userinit:system/etc/init.d/90userinit \
@@ -119,29 +119,29 @@ PRODUCT_COPY_FILES += \
 endif
 
 # Versioning System
-# gzosp first version.
+# krexus first version.
 PRODUCT_VERSION_MAJOR = 8.1.0
 PRODUCT_VERSION_MINOR = Stable
 PRODUCT_VERSION_MAINTENANCE = 1.0
-GZOSP_POSTFIX := -$(shell date +"%Y%m%d-%H%M")
-ifdef GZOSP_BUILD_EXTRA
-    GZOSP_POSTFIX := -$(GZOSP_BUILD_EXTRA)
+KREXUS_POSTFIX := -$(shell date +"%Y%m%d-%H%M")
+ifdef KREXUS_BUILD_EXTRA
+    KREXUS_POSTFIX := -$(KREXUS_BUILD_EXTRA)
 endif
 
-ifndef GZOSP_BUILD_TYPE
-    GZOSP_BUILD_TYPE := UNOFFICIAL
+ifndef KREXUS_BUILD_TYPE
+    KREXUS_BUILD_TYPE := UNOFFICIAL
 endif
 
 # Set all versions
-GZOSP_VERSION := Gzosp-$(GZOSP_BUILD)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(GZOSP_BUILD_TYPE)$(GZOSP_POSTFIX)
-GZOSP_MOD_VERSION := Gzosp-$(GZOSP_BUILD)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(GZOSP_BUILD_TYPE)$(GZOSP_POSTFIX)
+KREXUS_VERSION := krexus-$(KREXUS_BUILD)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(KREXUS_BUILD_TYPE)$(KREXUS_POSTFIX)
+KREXUS_MOD_VERSION := krexus-$(KREXUS_BUILD)-$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE)-$(KREXUS_BUILD_TYPE)$(KREXUS_POSTFIX)
 
 PRODUCT_PROPERTY_OVERRIDES += \
     BUILD_DISPLAY_ID=$(BUILD_ID) \
-    gzosp.ota.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE) \
-    ro.gzosp.version=$(GZOSP_VERSION) \
-    ro.modversion=$(GZOSP_MOD_VERSION) \
-    ro.gzosp.buildtype=$(GZOSP_BUILD_TYPE)
+    krexus.ota.version=$(PRODUCT_VERSION_MAJOR).$(PRODUCT_VERSION_MINOR).$(PRODUCT_VERSION_MAINTENANCE) \
+    ro.krexus.version=$(KREXUS_VERSION) \
+    ro.modversion=$(KREXUS_MOD_VERSION) \
+    ro.krexus.buildtype=$(KREXUS_BUILD_TYPE)
 
 # Google sounds
 include vendor/krexus/google/GoogleAudio.mk
@@ -150,4 +150,4 @@ include vendor/krexus/google/GoogleAudio.mk
 PRODUCT_PROPERTY_OVERRIDES += \
     ro.com.google.ime.theme_id=5
 
-EXTENDED_POST_PROCESS_PROPS := vendor/krexus/tools/gzosp_process_props.py
+EXTENDED_POST_PROCESS_PROPS := vendor/krexus/tools/krexus_process_props.py
