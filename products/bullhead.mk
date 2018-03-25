@@ -1,4 +1,4 @@
-# Copyright (C) 2017 The ABC rom
+# Copyright (C) 2017 The Pure Nexus Project
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
 # you may not use this file except in compliance with the License.
@@ -15,21 +15,21 @@
 # Include pure telephony configuration
 $(call inherit-product, vendor/krexus/config/common_full_phone.mk)
 
-# Inherit AOSP device configuration for berkeley
-$(call inherit-product, device/huawei/berkeley/aosp_berkeley.mk)
+# Inherit AOSP device configuration for bullhead
+$(call inherit-product, device/lge/bullhead/aosp_bullhead.mk)
 
-$(call inherit-product, vendor/gapps/gapps.mk)
+# Inherit arm64 phone gapps
+$(call inherit-product-if-exists, vendor/gapps/gapps.mk)
 
 # Override AOSP build properties
-PRODUCT_NAME := krexus_berkeley
-PRODUCT_DEVICE := berkeley
-PRODUCT_BRAND := Huawei
-PRODUCT_MODEL := Honor View 10
+PRODUCT_NAME := krexus_bullhead
+PRODUCT_BRAND := google
+PRODUCT_DEVICE := bullhead
+PRODUCT_MODEL := Nexus 5X
+PRODUCT_MANUFACTURER := LGE
 
 # Device Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=berkeley \
-    BUILD_FINGERPRINT=Huawei/generic_a15/generic_a15:8.1.0/OPM1.171019.011/jslave01241211:user/test-keys \
-    PRIVATE_BUILD_DESC="generic_a15-user 8.1.0 OPM1.171019.011 eng.jslave.20180124.121154 test-keys"
-
-$(call inherit-product-if-exists, vendor/huawei/berkeley/berkeley-vendor.mk)
+    PRODUCT_NAME=bullhead \
+    BUILD_FINGERPRINT=google/bullhead/bullhead:8.1.0/OPM3.171019.016/4565142:user/release-keys \
+    PRIVATE_BUILD_DESC="bullhead-user 8.1.0 OPM3.171019.016 4565142 release-keys"

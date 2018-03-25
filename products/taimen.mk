@@ -1,3 +1,4 @@
+
 # Copyright (C) 2017 The ABC rom
 #
 # Licensed under the Apache License, Version 2.0 (the "License");
@@ -13,23 +14,24 @@
 # limitations under the License.
 
 # Include pure telephony configuration
-$(call inherit-product, vendor/krexus/config/common_full_phone.mk)
+include vendor/krexus/config/common_full_phone.mk
 
-# Inherit AOSP device configuration for berkeley
-$(call inherit-product, device/huawei/berkeley/aosp_berkeley.mk)
+# Inherit AOSP device configuration for  taimen
+$(call inherit-product, device/google/taimen/aosp_taimen.mk)
 
 $(call inherit-product, vendor/gapps/gapps.mk)
 
 # Override AOSP build properties
-PRODUCT_NAME := krexus_berkeley
-PRODUCT_DEVICE := berkeley
-PRODUCT_BRAND := Huawei
-PRODUCT_MODEL := Honor View 10
+PRODUCT_NAME := krexus_taimen
+PRODUCT_DEVICE := taimen
+PRODUCT_BRAND := Google
+PRODUCT_MODEL := Pixel 2 XL
+PRODUCT_MANUFACTURER := LGE
 
 # Device Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=berkeley \
-    BUILD_FINGERPRINT=Huawei/generic_a15/generic_a15:8.1.0/OPM1.171019.011/jslave01241211:user/test-keys \
-    PRIVATE_BUILD_DESC="generic_a15-user 8.1.0 OPM1.171019.011 eng.jslave.20180124.121154 test-keys"
+    PRODUCT_NAME=taimen \
+    BUILD_FINGERPRINT=google/taimen/taimen:8.1.0/OPM1.171019.021/4565141:user/release-keys \
+    PRIVATE_BUILD_DESC="taimen-user 8.1.0 OPM1.171019.021 4565141 release-keys"
 
-$(call inherit-product-if-exists, vendor/huawei/berkeley/berkeley-vendor.mk)
+$(call inherit-product-if-exists, vendor/google/taimen/taimen-vendor.mk)
