@@ -22,7 +22,7 @@ $(call inherit-product, device/google/taimen/aosp_taimen.mk)
 $(call inherit-product, vendor/gapps/gapps.mk)
 
 # Override AOSP build properties
-PRODUCT_NAME := krexus_taimen
+PRODUCT_NAME := taimen
 PRODUCT_DEVICE := taimen
 PRODUCT_BRAND := Google
 PRODUCT_MODEL := Pixel 2 XL

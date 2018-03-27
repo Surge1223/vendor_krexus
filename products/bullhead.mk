@@ -22,7 +22,7 @@ $(call inherit-product, device/lge/bullhead/aosp_bullhead.mk)
 $(call inherit-product-if-exists, vendor/gapps/gapps.mk)
 
 # Override AOSP build properties
-PRODUCT_NAME := krexus_bullhead
+PRODUCT_NAME := bullhead
 PRODUCT_BRAND := google
 PRODUCT_DEVICE := bullhead
 PRODUCT_MODEL := Nexus 5X

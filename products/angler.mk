@@ -19,7 +19,7 @@ $(call inherit-product, vendor/krexus/config/common_full_phone.mk)
 $(call inherit-product, device/huawei/angler/aosp_angler.mk)
 
 # Override AOSP build properties
-PRODUCT_NAME := krexus_angler
+PRODUCT_NAME := angler
 PRODUCT_BRAND := google
 PRODUCT_DEVICE := angler
 PRODUCT_MODEL := Nexus 6P

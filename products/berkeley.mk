@@ -21,7 +21,7 @@ $(call inherit-product, device/huawei/berkeley/aosp_berkeley.mk)
 $(call inherit-product, vendor/gapps/gapps.mk)
 
 # Override AOSP build properties
-PRODUCT_NAME := krexus_berkeley
+PRODUCT_NAME := berkeley
 PRODUCT_DEVICE := berkeley
 PRODUCT_BRAND := Huawei
 PRODUCT_MODEL := Honor View 10
