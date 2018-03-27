@@ -28,8 +28,12 @@ PRODUCT_MODEL := Honor View 10
 
 # Device Fingerprint
 PRODUCT_BUILD_PROP_OVERRIDES += \
-    PRODUCT_NAME=berkeley \
-    BUILD_FINGERPRINT=Huawei/generic_a15/generic_a15:8.1.0/OPM1.171019.011/jslave01241211:user/test-keys \
-    PRIVATE_BUILD_DESC="generic_a15-user 8.1.0 OPM1.171019.011 eng.jslave.20180124.121154 test-keys"
+    PRODUCT_NAME=BKL-L04 \
+    PRODUCT_MODEL=BKL-L04 \
+    PRODUCT_MANUFACTURER=HUAWEI \
+    PRODUCT_DEVICE=HWBKL \
+    PRODUCT_BRAND=HONOR \
+    BUILD_FINGERPRINT=HUAWEI/BKL-L04/HWBKL:8.0/HUAWEIBKL-L04:user/release-keys \
+    PRIVATE_BUILD_DESC="BKL-L04-user 8.0 HUAWEIBKL-L04 release-keys"
 
 $(call inherit-product-if-exists, vendor/huawei/berkeley/berkeley-vendor.mk)
