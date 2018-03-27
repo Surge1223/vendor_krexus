@@ -18,9 +18,6 @@ $(call inherit-product, vendor/krexus/config/common_full_phone.mk)
 # Inherit AOSP device configuration for bullhead
 $(call inherit-product, device/lge/bullhead/aosp_bullhead.mk)
 
-# Inherit arm64 phone gapps
-$(call inherit-product-if-exists, vendor/gapps/gapps.mk)
-
 # Override AOSP build properties
 PRODUCT_NAME := bullhead
 PRODUCT_BRAND := google
